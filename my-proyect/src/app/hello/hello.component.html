@@ -1,0 +1,36 @@
+
+<!-- la directiva *ngIf :: permite ocultar o mostrar codigo dependiendo de si cierta condicion se cumple o no -->
+<!-- <div *ngIf="namesList.length < 5"> -->
+
+    <!-- [ngSwitch] :: sirve como contenedor el cual va a tener una condicion o una afirmacion ej:: -->
+    <div [ngSwitch]="namesList.length < 5"> <!--o tmabien sirve con ::  [ngSwitch]="namesList.length -->
+
+        <!-- ********************* manera larga de añadir nombre a un arreglo en vez de usar [(ngModel)]  ******************-->
+        <!-- <div >
+            commnet +++ ___ se asigna un Propery Binding a value para que tome el valor que se escriba en el input :: (keyup) se usa para guardar 
+            cada letra quese escriba en el input antes de enviar, el cual va a ejecutar la funcion updateInputName declarada en hello.component.ts
+            (click)= addName() :: se ejecuta cada vez el usuario oprime el botón ____ +++++
+            
+            <input type="text" [value]="inputName" (keyup)="updateInputName($event)">
+            <button (click)= addName()>Add Name</button>
+        </div> -->
+        <!-- ********************************************************************************************************************************** -->
+            <br>
+        <div *ngSwitchCase= false >  <!--o tmabien sirve con ::  *ngSwitchCase= 5 -->
+        <!-- -- Mismo formulario con ngModel -- --> <p> no puedes añadir mas nombres</p>
+            <br><br>
+        </div>
+    
+        <div *ngSwitchCase = true>  <!--o tmabien sirve con ::  *ngSwitchDefault : que se usa cuando ninguno delos casos se cumple-->
+            <!-- ngMOdel permite obtener el dato directamente de una variable :::  inputName que se encuentra en hello.component.ts-->
+            <input type="text" [(ngModel)]="inputName" >
+            <button (click)= addName()>Add Name</button>
+        </div>
+    </div>
+    <!-- (click)="onNameClick()" se ejecuta cuando se da click en este parrafo con el nombre alex el cual envia ordeneas a 
+    un evento que emite datos :: string --- ver en consola :: origin de la funcion :: hello.component.ts-->
+    <p *ngFor="let item of namesList; index as i" (click)="onNameClick()"> 
+        <!-- {{name}} ó {{item}} ::: esto se denomina como superpoblacion : el valor name viene de hello.component.ts y es un decorador input-->
+        {{i + 1}} - Hola {{item | slice:0:1 | uppercase}}{{item | slice:1 | lowercase}}!
+    </p>
+    

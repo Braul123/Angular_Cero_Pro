@@ -1,0 +1,22 @@
+/* oculta el mensage si la condicion se cumple en app.component.html ... [class.hidden]="myHelloComponent.inputName.length == 0"*/
+.hidden{
+    opacity: 0;
+}
+
+/* estilos que se aplican en la funcio updateNameClasses() en app.component.ts */
+.error{
+    color : red
+}
+
+.warning {
+    color: #ffc107
+}
+
+.success {
+    color : #28a745
+}
+
+.bold{
+    font-weight: 600;
+}
+/* hasta acá ********************************************************************   */
