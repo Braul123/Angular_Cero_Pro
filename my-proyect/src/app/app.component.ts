@@ -40,4 +40,5 @@ export class AppComponent {
       'color' : this.counter < 3 ? 'green' : 'goldenrod'
     }
   }
+
 }
