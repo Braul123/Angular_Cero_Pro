@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+
+    <!-- binding de estilo entre [] y recibe una condicion ::: el [ngStyle] ="tittleStyles" es una directiva que permite 
+    cambiar el estilo de un texto de acuerdo a un objeto :: tittleStyles declarado en app.component.ts-->
+    <h1 [style.color]="myHelloComponent.namesList.length > 0 ? 'red' : 'Black'" [ngStyle] = "tittleStyles">
+      Aprendiendo Angular
+    </h1>
+    
+    <!-- el [name] :: se define como Property bindings (enlaces de propiedad), ésta es una variable definida en un componente 
+     externo :: hello.component.ts ... y "myName" es una variable definida dentro del comppnente principal
+    :: ** app.component.ts ** :: el cual tiene asignado un valor que será asignado a la variable name.
+  
+    *myName* está definida en app.component.ts-->
+  
+    <!-- (sayHello)="onSayHello($event)" :: donde (sayHello) es un Event Binding el cual ejecuta un EventEmmiter *sayHello* 
+    localizado en hello.component.ts :: "onSayHello($event)" es una funcion declarada en app.componetn.ts la cual mostrará 
+    en consola los datos que se reciva de sayHello
+  
+    #myHelloComponent *siemprese define con almohadilla #* :: se usa para poder mostrar cualquier variable publica del componente llamdo :: o sea  <custom-hello><custom-hello> de hello.component.ts... 
+      se hace interpoblacion con esa variable myHelloComponent.*la variable a mostrar* 
+    
+    *** [class.hidden]="myHelloComponent.inputName.length == 0" ::: se usa para ocultar el comentario Escribiendo ... si no hay nada aun en el input
+    se aplica con un estilo en css en app.component.css ::: lo que va dentro de las comillas es una condición la cual dice que si no hay nada escrito no va a mostrar el mensaje -->
+  
+    <div [class.hidden]="myHelloComponent.inputName.length == 0"> Escribiendo 
+      <!--[ngClass]  = "updateNameClasses(myHelloComponent.inputName)" se usa para ejecutar una funcion si o si al momento en qie entra en la parte de codigo actual
+      ::: se separa un span la parte a la que se le va a aplicar el [ngClass]-->
+     <span [ngClass] = "updateNameClasses(myHelloComponent.inputName)"> '{{myHelloComponent.inputName}}' </span> en HelloCompponent'</div>
+    
+    <br>
+    <custom-hello #myHelloComponent [name]= "myName" (sayHello)="onSayHello($event)" ></custom-hello>
+  </div> 
